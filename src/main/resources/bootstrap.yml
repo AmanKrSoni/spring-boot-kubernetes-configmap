@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        sources:
+          - namespace: default
+            name: spring-kubernetes-configmap
+      reload:
+        enabled: true
+        mode: event
+        strategy: restart_context
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+  web:
+    exposure:
+      include: info,refresh,keepalive,health

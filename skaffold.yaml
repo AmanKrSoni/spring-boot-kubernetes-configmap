@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: spring-kubernetes-configmap
+
+deploy:
+  kubectl:
+    manifests:
+    - configmap.yaml
+    - deployment.yaml

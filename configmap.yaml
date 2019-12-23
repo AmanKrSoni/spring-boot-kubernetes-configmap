@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-kubernetes-configmap
+data:
+  application.properties: |-
+    welcome.message=Hello Aman from app.properties updated Configmap
+    message= Hi Aman from app.properties

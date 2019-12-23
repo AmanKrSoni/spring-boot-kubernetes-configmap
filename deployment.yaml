@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-kubernetes-configmap
+spec:
+  selector:
+    app: spring-kubernetes-configmap
+  ports:
+    - protocol: TCP
+      port: 8090
+      nodePort: 30083
+  type: NodePort
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-kubernetes-configmap
+spec:
+  selector:
+    matchLabels:
+      app: spring-kubernetes-configmap
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-kubernetes-configmap
+    spec:
+      containers:
+        - name: spring-kubernetes-configmap
+          image: spring-kubernetes-configmap
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8090
